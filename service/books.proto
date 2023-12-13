@@ -1,0 +1,135 @@
+// books.proto
+
+syntax = "proto3";
+
+package books;
+
+// The book service definition.
+service BookService {
+  // 전체 도서 조회
+  rpc List (Empty) returns (BookList) {}
+  
+  // 도서 검색
+  rpc Search (SearchRequest) returns(BookList) {}
+
+  // 도서 추가
+  rpc AddBook (AddRequest) returns (AddResponse) {}
+
+  // 도서 삭제
+  rpc DeleteBook(DeleteRequest) returns (DeleteResponse) {}
+
+  // 도서 제목 수정
+  rpc UpdateBook(UpdateRequest) returns (UpdateResponse) {}
+
+  // 작가 수정
+  rpc UpdateAuthor(UpdateAuthorRequest) returns (UpdateAuthorResponse);
+
+  // 출판년도 수정
+  rpc UpdateYear(UpdateYearRequest) returns (UpdateYearResponse);
+
+  // 출판년도로 도서 검색
+  rpc SearchBooksByYear(SearchBooksByYearRequest) returns (SearchBooksByYearResponse);
+
+  // 작가로 도서 검색
+  rpc SearchBooksByAuthor(SearchBooksByAuthorRequest) returns (SearchBooksByAuthorResponse);
+
+  // 전체 도서 삭제
+  rpc DeleteAllBooks(DeleteAllBooksRequest) returns (DeleteAllBooksResponse);
+}
+
+// An empty message
+message Empty {
+}
+
+// The Book message contains a book.
+message Book {
+  int32 id = 1;
+  string title = 2;
+  string author = 3;
+  int32 published_year = 4;
+}
+
+// The BookList message contains a list of books.
+message BookList {
+  repeated Book books = 1;
+}
+
+// The SearchRequest message contains a search parameter.
+message SearchRequest {
+  string title = 1;
+}
+
+// The AddRequest message contains a book to be added.
+message AddRequest {
+  string title = 1;
+  string author = 2;
+  int32 published_year = 3;
+}
+
+// The AddResponse message contains a result message.
+message AddResponse {
+  string result = 1;
+}
+
+// The DeleteRequest message contains a book ID to be deleted.
+message DeleteRequest {
+  int32 id = 1;
+}
+
+// The DeleteResponse message contains a result message.
+message DeleteResponse {
+  string result = 1;
+}
+
+// The UpdateRequest message contains a book ID and a new title.
+message UpdateRequest {
+  int32 id = 1;
+  string title = 2;
+  string author = 3;
+}
+
+// The UpdateResponse message contains a result message.
+message UpdateResponse {
+  string result = 1;
+}
+
+message UpdateAuthorRequest {
+    int32 id = 1;
+    string author = 2;
+}
+
+message UpdateAuthorResponse {
+    string result = 1;
+}
+
+message UpdateYearRequest {
+  int32 id = 1;
+  int32 published_year = 2;
+}
+
+message UpdateYearResponse {
+  string result = 1;
+}
+
+message SearchBooksByYearRequest {
+  int32 year = 1;
+}
+
+message SearchBooksByYearResponse {
+  repeated Book books = 1;
+}
+
+message SearchBooksByAuthorRequest {
+  string author = 1;
+}
+
+message SearchBooksByAuthorResponse {
+  repeated Book books = 1;
+}
+
+message DeleteAllBooksRequest {
+}
+
+message DeleteAllBooksResponse {
+    string result = 1;
+}
