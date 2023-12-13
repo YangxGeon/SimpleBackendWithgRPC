@@ -6,3 +6,5 @@
 - REST API (client.j 와 api_server.js)
 - gRPC (api_server.js와 service.py)
 - MySQL을 선택한 이유는 도서 정보가 정형화된 데이터로 구성되어 있기 때문
+
+python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. books.proto
