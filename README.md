@@ -14,3 +14,5 @@ sudo apt install git
 git clone https://github.com/YangxGeon/SimpleBackendWithgRPC.git
 npm install 
 pip install -r requirements.txt
+node api_server.js
+python3 service.py
