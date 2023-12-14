@@ -8,3 +8,9 @@
 - MySQL을 선택한 이유는 도서 정보가 정형화된 데이터로 구성되어 있기 때문
 
 python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. books.proto
+
+sudo apt update
+sudo apt install git
+git clone https://github.com/YangxGeon/SimpleBackendWithgRPC.git
+npm install 
+pip install -r requirements.txt
