@@ -21,8 +21,10 @@ python3 service.py
 sudo apt install mysql-server
 
 CREATE DATABASE IF NOT EXISTS library;
+
 USE library;
 
+mysql -u root -p
 
 CREATE TABLE IF NOT EXISTS Books (
     id INT AUTO_INCREMENT PRIMARY KEY,
