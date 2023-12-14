@@ -18,8 +18,11 @@ node api_server.js
 python3 service.py
 
 초기 데이터베이스 생성문
+sudo apt install mysql-server
+
 CREATE DATABASE IF NOT EXISTS library;
 USE library;
+
 
 CREATE TABLE IF NOT EXISTS Books (
     id INT AUTO_INCREMENT PRIMARY KEY,
